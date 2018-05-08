@@ -20,7 +20,15 @@ soup = bs.BeautifulSoup(pageHTML, 'lxml')
 container = soup.find("ul", {"id": "s-results-list-atf"})
 i = 1
 for row in container.findAll("div", {"class": "a-fixed-left-grid-inner"}):
-    print("************"+ str(i)+ "********")
-    print(row.text)
-    i +=1
-webdriver.Close()
+    itemName = row.find("h2").text
+    try:
+        itemWholePrice = row.find("span", {"class": "sx-price-whole"}).text
+        itemFractionalPrice = row.find("sup", {"class": "sx-price-fractional"}).text
+    except:
+        itemWholePrice = "Missing"
+        itemFractionalPrice = "Missing"
+        
+    print(itemName)
+    print(str(itemWholePrice) + "." + str(itemFractionalPrice))
+
+driver.dispose()
