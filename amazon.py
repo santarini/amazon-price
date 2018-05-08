@@ -1,7 +1,6 @@
-#1Python 3
+#!Python 3
 
 import time
-import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
@@ -29,6 +28,6 @@ for row in container.findAll("div", {"class": "a-fixed-left-grid-inner"}):
         itemFractionalPrice = "Missing"
         
     print(itemName)
-    print("$" + str(itemWholePrice) + "." + str(itemFractionalPrice))
+    print(str(itemWholePrice) + "." + str(itemFractionalPrice))
 
-driver.dispose()
+driver.quit()
