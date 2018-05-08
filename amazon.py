@@ -29,6 +29,6 @@ for row in container.findAll("div", {"class": "a-fixed-left-grid-inner"}):
         itemFractionalPrice = "Missing"
         
     print(itemName)
-    print(str(itemWholePrice) + "." + str(itemFractionalPrice))
+    print("$" + str(itemWholePrice) + "." + str(itemFractionalPrice))
 
 driver.dispose()
